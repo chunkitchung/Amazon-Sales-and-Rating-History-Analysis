@@ -1,7 +1,7 @@
 # Amazon Sales and Rating History Analysis
 
 ## Overview
-This repository contains the code and data analysis for the final project of EECS4414: Information Networks at York University. The project applies network analysis techniques to Amazon's sales and rating history data to provide personalized customer recommendations and uncover key business insights. The full report can be found [here] (https://drive.google.com/file/d/1B8pQfQgy-GqyWi3CFT-NvEFyJejuZ27a/view?usp=sharing)
+This repository contains the code and data analysis for the final project of EECS4414: Information Networks at York University. The project applies network analysis techniques to Amazon's sales and rating history data to provide personalized customer recommendations and uncover key business insights. The full report can be found [here](https://drive.google.com/file/d/1B8pQfQgy-GqyWi3CFT-NvEFyJejuZ27a/view?usp=sharing) The dataset we used can be found [here] (https://www.kaggle.com/code/saurav9786/recommender-system-using-amazon-reviews/notebook)
 
 ## Team Members
 - Aiza Bajwa - ambajwa@my.yorku.ca
