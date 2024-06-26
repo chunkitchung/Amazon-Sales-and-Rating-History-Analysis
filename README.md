@@ -38,8 +38,3 @@ The analysis provided several insights, including:
 - Temporal trends in product ratings and sales.
 - Segmentation of users into communities based on their purchasing behavior.
 - Accurate prediction of future purchasing trends and personalized product recommendations.
-
-## Usage
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/amazon-sales-analysis.git
