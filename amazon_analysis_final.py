@@ -24,3 +24,9 @@ data['RatingTimestamp'] = data['RatingTimestamp'].dt.strftime('%Y-%m-%d %H:%M:%S
 data = data.drop(columns=['UnixTime'])
 
 print(data)
+
+numUniqueUsers = len(pd.unique(data['UserID']))
+print(numUniqueUsers)
+
+numUniqueProducts = len(pd.unique(data['ProductID']))
+print(numUniqueProducts)
