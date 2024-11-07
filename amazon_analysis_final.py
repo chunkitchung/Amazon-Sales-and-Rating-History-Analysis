@@ -30,3 +30,13 @@ print(numUniqueUsers)
 
 numUniqueProducts = len(pd.unique(data['ProductID']))
 print(numUniqueProducts)
+
+# Explore data: rating column only
+data.describe()
+ 
+# Explore data: rating time stamp
+print("Earliest Date:", data['RatingTimestamp'].min())
+print("Latest Date:", data['RatingTimestamp'].max())
+
+
+
