@@ -14,7 +14,6 @@ data = pd.read_csv(file_path, header=None)
 print(data)
 
 """#Data Exploration and Preprocessing"""
-
 data.columns = ['UserID', 'ProductID', 'Rating', 'UnixTime'] # adds headers to columns
 data['UserID'] = data['UserID'].astype(str) # converts column to string
 data['ProductID'] = data['ProductID'].astype(str)
@@ -22,21 +21,19 @@ data['RatingTimestamp'] = pd.to_datetime(data['UnixTime'], unit='s', utc=True) #
 data['RatingTimestamp'] = data['RatingTimestamp'].dt.tz_convert('America/New_York') # Adjusts datetime objects to America/New_York time zone
 data['RatingTimestamp'] = data['RatingTimestamp'].dt.strftime('%Y-%m-%d %H:%M:%S') # Converts datetime objects to strings in preferred format
 data = data.drop(columns=['UnixTime'])
-
 print(data)
 
+#Outputting the number of unique users and products
 numUniqueUsers = len(pd.unique(data['UserID']))
 print(numUniqueUsers)
-
 numUniqueProducts = len(pd.unique(data['ProductID']))
 print(numUniqueProducts)
 
 # Explore data: rating column only
 data.describe()
- 
+
 # Explore data: rating time stamp
 print("Earliest Date:", data['RatingTimestamp'].min())
 print("Latest Date:", data['RatingTimestamp'].max())
-
 
 
