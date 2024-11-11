@@ -36,4 +36,11 @@ data.describe()
 print("Earliest Date:", data['RatingTimestamp'].min())
 print("Latest Date:", data['RatingTimestamp'].max())
 
-
+##Choose random sample, n = 500,000
+unique_user_ids = data['UserID'].unique()
+# Sample a subset of unique user IDs
+sampled_user_ids = pd.Series(unique_user_ids).sample(n=500000, replace=False, random_state=42)
+# Use the sampled user IDs to make a subset of your original DataFrame
+data = data[data['UserID'].isin(sampled_user_ids)]
+print("Sampled DataFrame:")
+print(data)
