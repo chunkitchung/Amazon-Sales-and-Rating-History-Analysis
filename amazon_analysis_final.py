@@ -44,3 +44,26 @@ sampled_user_ids = pd.Series(unique_user_ids).sample(n=500000, replace=False, ra
 data = data[data['UserID'].isin(sampled_user_ids)]
 print("Sampled DataFrame:")
 print(data)
+
+
+bipartite_graph = nx.Graph()
+userIDs = data['UserID'].tolist()
+productIDs = data['ProductID'].tolist()
+ratings = data['Rating'].tolist()
+ratingTimestamps = data['RatingTimestamp'].tolist()
+
+bipartite_graph.add_nodes_from(userIDs, bipartite=0) 
+bipartite_graph.add_nodes_from(productIDs, bipartite=1) 
+
+weighted_edges = []
+for i in range(len(userIDs)):
+  weighted_edges.append((userIDs[i], productIDs[i], (ratings[i], ratingTimestamps[i])))
+
+
+bipartite_graph.add_weighted_edges_from(weighted_edges, weight='weight') 
+edges_with_weights = list(bipartite_graph.edges(data=True))[:5]
+
+
+print("First 5 edges of the graph with weights:")
+for edge in edges_with_weights:
+    print(edge[:2], "Weight:", edge[2]['weight']
