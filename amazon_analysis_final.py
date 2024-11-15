@@ -46,24 +46,28 @@ print("Sampled DataFrame:")
 print(data)
 
 
+##Create bipartite graph
 bipartite_graph = nx.Graph()
 userIDs = data['UserID'].tolist()
 productIDs = data['ProductID'].tolist()
 ratings = data['Rating'].tolist()
 ratingTimestamps = data['RatingTimestamp'].tolist()
 
-bipartite_graph.add_nodes_from(userIDs, bipartite=0) 
-bipartite_graph.add_nodes_from(productIDs, bipartite=1) 
+# add both sets of nodes with specific attribute to distinguish them
+bipartite_graph.add_nodes_from(userIDs, bipartite=0) # give set of users the bipartite attribute with value = 0
+bipartite_graph.add_nodes_from(productIDs, bipartite=1) # give set of products the bipartite attribute with value = 1
 
 weighted_edges = []
 for i in range(len(userIDs)):
   weighted_edges.append((userIDs[i], productIDs[i], (ratings[i], ratingTimestamps[i])))
 
+# Add weighted edges to the graph
+bipartite_graph.add_weighted_edges_from(weighted_edges, weight='weight') # weight=weight just means keep the attribute name weight
 
-bipartite_graph.add_weighted_edges_from(weighted_edges, weight='weight') 
+# get the first 5 edges with weights
 edges_with_weights = list(bipartite_graph.edges(data=True))[:5]
 
-
+# Print the first 5 edges with weights
 print("First 5 edges of the graph with weights:")
 for edge in edges_with_weights:
     print(edge[:2], "Weight:", edge[2]['weight']
