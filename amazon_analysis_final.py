@@ -71,3 +71,22 @@ edges_with_weights = list(bipartite_graph.edges(data=True))[:5]
 print("First 5 edges of the graph with weights:")
 for edge in edges_with_weights:
     print(edge[:2], "Weight:", edge[2]['weight']
+
+
+user_nodes = [node for node, attr in bipartite_graph.nodes(data=True) if attr['bipartite'] == 0]
+num_user_nodes = len(user_nodes)
+
+product_nodes = [node for node, attr in bipartite_graph.nodes(data=True) if attr['bipartite'] == 1]
+num_product_nodes = len(product_nodes)
+
+num_edges = bipartite_graph.number_of_edges()
+
+print("Number of nodes with bipartite=0 (users):", num_user_nodes) 
+print("Number of nodes with bipartite=1 (products):", num_product_nodes)
+print("Total number of nodes:", bipartite_graph.number_of_nodes())
+print("Number of edges:", num_edges)
+
+
+
+
+          
