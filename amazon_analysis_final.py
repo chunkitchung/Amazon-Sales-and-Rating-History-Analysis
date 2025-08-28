@@ -86,7 +86,18 @@ print("Number of nodes with bipartite=1 (products):", num_product_nodes)
 print("Total number of nodes:", bipartite_graph.number_of_nodes())
 print("Number of edges:", num_edges)
 
+## Create degree distribution plots
+# Separate users and products
+users = {node for node, data in bipartite_graph.nodes(data=True) if data['bipartite'] == 0}
+products = set(bipartite_graph) - users
 
+user_degrees = []
+for n, degree in bipartite_graph.degree(users):
+  user_degrees.append(degree)
+
+product_degrees = []
+for n, degree in bipartite_graph.degree(products):
+  product_degrees.append(degree)
 
 
           
