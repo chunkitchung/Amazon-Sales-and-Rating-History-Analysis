@@ -99,5 +99,20 @@ product_degrees = []
 for n, degree in bipartite_graph.degree(products):
   product_degrees.append(degree)
 
+# Count the occurrences of each degree
+user_degree_counts = Counter(user_degrees)
+product_degree_counts = Counter(product_degrees)
 
+# Calculate the total number of users and products
+total_users = len(users)
+total_products = len(products)
+
+# Calculate the probability of each degree for users and products
+user_degree_probabilities = {}
+for degree, count in user_degree_counts.items():
+  user_degree_probabilities[degree] = count / total_users
+
+product_degree_probabilities = {}
+for degree, count in product_degree_counts.items():
+  product_degree_probabilities[degree] = count / total_products
           
