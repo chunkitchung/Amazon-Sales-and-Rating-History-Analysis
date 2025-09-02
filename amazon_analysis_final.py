@@ -116,3 +116,6 @@ product_degree_probabilities = {}
 for degree, count in product_degree_counts.items():
   product_degree_probabilities[degree] = count / total_products
           
+# Create pandas DataFrame with degree and count
+user_degree_df = pd.DataFrame(user_degree_counts.items(), columns=['Degree', 'Count']).sort_values(by='Degree')
+product_degree_df = pd.DataFrame(product_degree_counts.items(), columns=['Degree', 'Count']).sort_values(by='Degree')
