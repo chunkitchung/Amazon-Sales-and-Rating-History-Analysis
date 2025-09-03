@@ -119,3 +119,7 @@ for degree, count in product_degree_counts.items():
 # Create pandas DataFrame with degree and count
 user_degree_df = pd.DataFrame(user_degree_counts.items(), columns=['Degree', 'Count']).sort_values(by='Degree')
 product_degree_df = pd.DataFrame(product_degree_counts.items(), columns=['Degree', 'Count']).sort_values(by='Degree')
+
+# Print user degree distribution table
+print("User Degree Distribution:")
+print(user_degree_df.head)
