@@ -123,3 +123,6 @@ product_degree_df = pd.DataFrame(product_degree_counts.items(), columns=['Degree
 # Print user degree distribution table
 print("User Degree Distribution:")
 print(user_degree_df.head)
+
+user_degree_probability_df = pd.DataFrame(user_degree_probabilities.items(), columns=['Degree', 'Probability']).sort_values(by='Degree')
+
