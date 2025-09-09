@@ -126,3 +126,12 @@ print(user_degree_df.head)
 
 user_degree_probability_df = pd.DataFrame(user_degree_probabilities.items(), columns=['Degree', 'Probability']).sort_values(by='Degree')
 
+# Make figure
+plt.figure(figsize=(10, 5))
+plt.scatter(user_degree_probability_df['Degree'], user_degree_probability_df['Probability'])
+
+plt.title('User Degree Distribution')
+plt.xscale('log')
+plt.xlabel('Degree, k')
+plt.ylabel('Probability of Degree Distribution, P(k)')
+plt.show()
