@@ -135,3 +135,8 @@ plt.xscale('log')
 plt.xlabel('Degree, k')
 plt.ylabel('Probability of Degree Distribution, P(k)')
 plt.show()
+
+
+# Print product degree distribution table
+print("\nProduct Degree Distribution:")
+print(product_degree_df)
