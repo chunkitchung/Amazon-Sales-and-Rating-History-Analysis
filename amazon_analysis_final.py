@@ -140,3 +140,12 @@ plt.show()
 # Print product degree distribution table
 print("\nProduct Degree Distribution:")
 print(product_degree_df)
+
+# Plot
+plt.figure(figsize=(10, 5))
+plt.scatter(product_degree_df['Degree'], product_degree_df['Count'])
+plt.title('Product Degree Distribution')
+plt.xscale('log')
+plt.xlabel('Degree, k')
+plt.ylabel('Count')
+plt.show()
