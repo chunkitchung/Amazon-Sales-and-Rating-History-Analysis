@@ -149,3 +149,17 @@ plt.xscale('log')
 plt.xlabel('Degree, k')
 plt.ylabel('Count')
 plt.show()
+
+## Filter out unnecessary nodes
+# Delete user nodes with degree less than 3
+users = {node for node, data in bipartite_graph.nodes(data=True) if data['bipartite'] == 0}
+
+nodes_to_remove = []
+
+for node in users:
+  if (bipartite_graph.degree(node) < 3):
+    nodes_to_remove.append(node)
+
+bipartite_graph.remove_nodes_from(nodes_to_remove) # altering original graph
+
+print("Number of USER Nodes with degree < 3 removed: ", len(nodes_to_remove))
