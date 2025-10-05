@@ -163,3 +163,18 @@ for node in users:
 bipartite_graph.remove_nodes_from(nodes_to_remove) # altering original graph
 
 print("Number of USER Nodes with degree < 3 removed: ", len(nodes_to_remove))
+
+# Deleting user nodes above have resulted in some product nodes with degree = 0
+# Delete product nodes with degree equal to 0, signifying no one reviewed them
+
+products = {node for node, data in bipartite_graph.nodes(data=True) if data['bipartite'] == 1}
+
+nodes_to_remove = []
+
+for node in products:
+  if (bipartite_graph.degree(node) == 0):
+    nodes_to_remove.append(node)
+
+bipartite_graph.remove_nodes_from(nodes_to_remove)
+
+print("Number of USER Nodes with degree = 0 removed: ", len(nodes_to_remove))
