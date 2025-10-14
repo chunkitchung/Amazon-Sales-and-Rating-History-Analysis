@@ -211,4 +211,4 @@ def pearson(g, u, v):
   # Handle the case where the denominator is zero
   if denominator == 0:
       return 0
-  return numerator / denominator
+    return numerator / denominator
