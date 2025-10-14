@@ -181,3 +181,29 @@ print("Number of USER Nodes with degree = 0 removed: ", len(nodes_to_remove))
 
 ##Create folded graph
 #Define Pearson similarity function for user projection/folded graph
+def pearson(g, u, v):
+  u_ratings = []
+  v_ratings = []
+
+  commonProducts = set(g[u]) & set(g[v])
+
+  if not commonProducts:
+    return 0
+  for product in commonProducts:
+    uRating = g[u][product]['weight'][0]
+    vRating = g[v][product]['weight'][0]
+    u_ratings.append(uRating)
+    v_ratings.append(vRating)
+
+  x = np.array(u_ratings)
+  y = np.array(v_ratings)
+  n = len(x)
+
+  sum_xy = np.sum(x * y)
+  sum_x = np.sum(x)
+  sum_y = np.sum(y)
+  sum_x2 = np.sum(x ** 2)
+  sum_y2 = np.sum(y ** 2)
+
+  numerator = n * sum_xy - sum_x * sum_y
+  denominator = np.sqrt((n * sum_x2 - sum_x ** 2) * (n * sum_y2 - sum_y ** 2))
