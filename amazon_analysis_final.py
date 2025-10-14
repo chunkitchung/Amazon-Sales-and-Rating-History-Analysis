@@ -178,3 +178,6 @@ for node in products:
 bipartite_graph.remove_nodes_from(nodes_to_remove)
 
 print("Number of USER Nodes with degree = 0 removed: ", len(nodes_to_remove))
+
+##Create folded graph
+#Define Pearson similarity function for user projection/folded graph
