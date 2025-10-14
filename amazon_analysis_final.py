@@ -207,3 +207,8 @@ def pearson(g, u, v):
 
   numerator = n * sum_xy - sum_x * sum_y
   denominator = np.sqrt((n * sum_x2 - sum_x ** 2) * (n * sum_y2 - sum_y ** 2))
+  
+  # Handle the case where the denominator is zero
+  if denominator == 0:
+      return 0
+  return numerator / denominator
